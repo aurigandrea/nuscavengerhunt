@@ -13,7 +13,7 @@
      <header>
       <h1>NU Britain and the World Scavenger Hunt</h1>
     </header>
-    <div>
+    <div id='intro'>
  <p> This is the online St Katherine's docks Scavanger Hunt for Britain and the World students. Please start the game below.</p>
 </div>
 <div class='wrapper'>
@@ -29,48 +29,63 @@
     <div>
       <p id='result'></p></div>
 </div>
+<table>
+  <th>
+     <div id="display_here"></div>
+  <div>
+    <select name="choice" id="choice" size="6" onchange="createDoll(this.value)">
+    <option value="0">Stop 1</option>
+    <option value="1">Stop 2</option>
+    <option value="2">Stop 3</option>
+    <option value="3">Stop 4</option>
+    <option value="4">Stop 5</option>
+    <option value="5">Stop 6</option>
+        </select>
+</div>
+</th>
+  <th>
+ <div>
+        <img id="image" src=""/>
+    </div>
+    <div>
+    <button type="button" onclick="show()" id="btnID">Show map</button>  
+  </div> 
+</th>
+</table>
 <script>
   function getUserName() {
 var nameField = document.getElementById('nameField').value;
 var result = document.getElementById('result');
-
-if (nameField.length < 3) {
-    result.textContent = 'Username must contain at least 3 characters';
-    //alert('Username must contain at least 3 characters');
-} else {
     result.textContent = 'Welcome, ' + nameField + ', to the St Katherines Docks online Scavenger hunt. Please click on the button below to reveal the map you have to discover.';
-    //alert(nameField);
-}
+    document.getElementById('nameForm').style.display='none';
+    document.getElementById('nameLabel').style.display='none';
+    document.getElementById('subButton').style.display='none';
+    document.getElementById('nameField').style.display='none';
 }
 var subButton = document.getElementById('subButton');
 subButton.addEventListener('click', getUserName, false); 
 </script>
-<div>
-   <img id="image" src=""/>
-</div>
-<div>
-    <button type="button" onclick="show()" id="btnID">Show map
-    </button>
-</div>
 <script type="text/javascript">
         function show() {
           let image = document.getElementById("image");
           image.src = "hunt.png"
           document.getElementById("btnID").style.display ="none";
-          result.textContent = 'Which point do you want to visit first? Please enter a number.';
+          result.textContent = 'You are standing in front of Devon House in St Katherines Dock. Which point do you want to visit first? Please choose a stop.';
         }
- </script>
-  <div class='wrapper'>
+</script>
+      
+
+  <!--<div class='wrapper'>
     <form id='choiceForm'>
     <div class='form-firstchoice'>
     <label id='choiceLabel' for='choiceField'>Enter the number of your choice here</label>
         <input id='choiceField' type='text' maxlength='1'></input>
 
 <div class='form-sub'>
-    <button id='subButtonChoice' type='button'>Submit</button>
+    <button id='subButtonChoice'type='button'>Submit</button>
 </div>
 </form>
-<div><p id='resultChoice'></p></div>
+<div><p id='resultChoice'></p></div> 
 </div>
 </div>
 </div>
@@ -80,24 +95,60 @@ subButton.addEventListener('click', getUserName, false);
 var choiceField = document.getElementById('choiceField').value;
 var resultChoice = document.getElementById('resultChoice');
 
-if (choiceField =+'1') {
+if (choiceField =='1') {
     result.textContent = 'You choose stop 1';
+    document.getElementById('image').style.visibility='hidden';
+    document.getElementById('choiceLabel').style.visibility='hidden';
+    document.getElementById('subButtonChoice').style.visibility='hidden';
+    document.getElementById('choiceField').style.visibility='hidden';
+    document.getElementById('intro').style.display='hidden';
 } else if (choiceField == '2') {
     result.textContent = 'You choose stop 2';
+    document.getElementById('image').style.visibility='hidden';
 } else if (choiceField == '3') {
     result.textContent = 'You choose stop 3';
+    document.getElementById('image').style.visibility='hidden';
 } else if (choiceField == '4') {
     result.textContent = 'You choose stop 4';
+    document.getElementById('image').style.visibility='hidden';
 } else if (choiceField == '4') {
     result.textContent = 'You choose stop 4';
+    document.getElementById('image').style.visibility='hidden';
 } else if (choiceField == '5') {
+    document.getElementById('image').style.visibility='hidden';
     result.textContent = 'You choose stop 5';
+    document.getElementById('image').style.visibility='hidden';
 } else {
     result.textContent = 'bumm';
+    document.getElementById('image').style.visibility='hidden';
 }
 }
 var subButtonChoice = document.getElementById('subButtonChoice');
 subButtonChoice.addEventListener('click', getChoice, false); 
+</script> -->
+
+
+<script type="text/javascript">
+  function createDoll(userChoice) {
+    var output = document.getElementById("display_here");
+    output.innerHTML = "";
+    //document.getElementById('image').style.visibility='hidden';
+
+    var links = [
+        "bythetower2.jpg",
+        "master2.jpg",
+        "elephant2.jpg",
+        "devon2.jpg",
+        "london2.jpg",
+        "echo2.jpg",
+    ];
+    
+    var choices = ["Stop 1", "Stop 2", "Stop 3", "Stop 4", "Stop 5", "Stop6"];
+    var sentence = "You picked " + choices[userChoice]+ ".";
+    var img = '<img src="' + links[userChoice] + '" width="500">';
+    
+    output.innerHTML = sentence + img;
+}
 </script>
     </body>
   </html>
