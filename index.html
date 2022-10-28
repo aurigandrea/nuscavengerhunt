@@ -16,15 +16,88 @@
     <div>
  <p> This is the online St Katherine's docks Scavanger Hunt for Britain and the World students. Please start the game below.</p>
 </div>
-<script>
- </script>
-    <!--<div>
-        <py-script> 
-          name = input ("Type your name: ")
-          print("Welcome", name, "to this adventure! Have a look at the map below.")
-        </py-script> -->
-
-        <img src="hunt.png" alt="Hunt map">
+<div class='wrapper'>
+    <form id='nameForm'>
+        <div class='form-uname'>
+          <label id='nameLable' for='nameField'>Hi! I'm digital Andrea. What's your name?</label>
+         <input id='nameField' type='text' maxlength='25'></input>
+        </div>
+        <div class='form-sub'>
+       <button id='subButton' type='button'>Submit</button>
       </div>
+    </form>
+    <div>
+      <p id='result'></p></div>
+</div>
+<script>
+  function getUserName() {
+var nameField = document.getElementById('nameField').value;
+var result = document.getElementById('result');
+
+if (nameField.length < 3) {
+    result.textContent = 'Username must contain at least 3 characters';
+    //alert('Username must contain at least 3 characters');
+} else {
+    result.textContent = 'Welcome, ' + nameField + ', to the St Katherines Docks online Scavenger hunt. Please click on the button below to reveal the map you have to discover.';
+    //alert(nameField);
+}
+}
+var subButton = document.getElementById('subButton');
+subButton.addEventListener('click', getUserName, false); 
+</script>
+<div>
+   <img id="image" src=""/>
+</div>
+<div>
+    <button type="button" onclick="show()" id="btnID">Show map
+    </button>
+</div>
+<script type="text/javascript">
+        function show() {
+          let image = document.getElementById("image");
+          image.src = "hunt.png"
+          document.getElementById("btnID").style.display ="none";
+          result.textContent = 'Which point do you want to visit first? Please enter a number.';
+        }
+ </script>
+  <div class='wrapper'>
+    <form id='choiceForm'>
+    <div class='form-firstchoice'>
+    <label id='choiceLabel' for='choiceField'>Enter the number of your choice here</label>
+        <input id='choiceField' type='text' maxlength='1'></input>
+
+<div class='form-sub'>
+    <button id='subButtonChoice' type='button'>Submit</button>
+</div>
+</form>
+<div><p id='resultChoice'></p></div>
+</div>
+</div>
+</div>
+<script>
+  
+  function getChoice() {
+var choiceField = document.getElementById('choiceField').value;
+var resultChoice = document.getElementById('resultChoice');
+
+if (choiceField =+'1') {
+    result.textContent = 'You choose stop 1';
+} else if (choiceField == '2') {
+    result.textContent = 'You choose stop 2';
+} else if (choiceField == '3') {
+    result.textContent = 'You choose stop 3';
+} else if (choiceField == '4') {
+    result.textContent = 'You choose stop 4';
+} else if (choiceField == '4') {
+    result.textContent = 'You choose stop 4';
+} else if (choiceField == '5') {
+    result.textContent = 'You choose stop 5';
+} else {
+    result.textContent = 'bumm';
+}
+}
+var subButtonChoice = document.getElementById('subButtonChoice');
+subButtonChoice.addEventListener('click', getChoice, false); 
+</script>
     </body>
   </html>
