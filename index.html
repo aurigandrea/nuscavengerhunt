@@ -11,15 +11,22 @@
   </head>
   <body> 
      <header>
+      <div class="header" id="myHeader">
+        <div id="header-e1">
       <h1>NU Britain and the World Scavenger Hunt</h1>
+    </div>
+    <div id="header-e2">
+      <img src="header.jpg" height="100">
+    </div>
+    </div>
     </header>
     <div id='intro'>
- <p> This is the online St Katherine's docks Scavanger Hunt for Britain and the World students. Please start the game below.</p>
+ <p> This is the online St Katherine's Docks Scavenger Hunt for Britain and the World students. Please start the game below.</p>
 </div>
 <div class='wrapper'>
     <form id='nameForm'>
         <div class='form-uname'>
-          <label id='nameLable' for='nameField'>Hi! I'm digital Andrea. What's your name?</label>
+          <label id='nameLable' for='nameField'>Hi! I'm Digital Andrea. What's your name?</label>
          <input id='nameField' type='text' maxlength='25'></input>
         </div>
         <div class='form-sub'>
@@ -31,7 +38,16 @@
 </div>
 <table>
   <th>
-     <div id="display_here"></div>
+     <div>
+        <img id="image" src=""/>
+    </div>
+    <div>
+    <button type="button" onclick="show()" id="btnID">Show map</button>  
+  </div> 
+    
+</th>
+  <th>
+ <div id="display_here"></div>
   <div>
     <select name="choice" id="choice" size="7" onchange="createDoll(this.value)">
     <option value="0">Stop 1</option>
@@ -44,15 +60,8 @@
         </select>
 </div>
 </th>
-  <th>
- <div>
-        <img id="image" src=""/>
-    </div>
-    <div>
-    <button type="button" onclick="show()" id="btnID">Show map</button>  
-  </div> 
-</th>
 </table>
+
 <script>
   function getUserName() {
 var nameField = document.getElementById('nameField').value;
@@ -70,8 +79,9 @@ subButton.addEventListener('click', getUserName, false);
         function show() {
           let image = document.getElementById("image");
           image.src = "hunt.png"
+          image.style.width = "600px";
           document.getElementById("btnID").style.display ="none";
-          result.textContent = 'You are standing in front of Devon House in St Katherines Dock. Which point do you want to visit first? Please choose a stop.';
+          result.textContent = "You are standing in front of Devon House in St Katherine's Docks. Which point do you want to visit next? Please choose a stop.";
         }
 </script>
 
@@ -90,13 +100,121 @@ subButton.addEventListener('click', getUserName, false);
         "london2.jpg",
         "echo2.jpg",
     ];
+
+    var links2 = [
+    'bythetower3.jpg',
+    'master3.jpeg',
+    'elephant3.png',
+    'devon3.png',
+    '',
+    '',
+    ];
+
+    var sentences2 = ["What was originally standing here? The Royal Hospital and Collegiate Church of St. Katharine by the Tower.\nThis was a medieval church and hospital founded by Queen Matilda of Boulogne, wife of King Stephen. From 1273 onwards patronage was always held by the queen.  By the nineteenth century it had grown to a village providing refuge to immigrants and to the poor. Considered insanitary and located close to the City this was the site chosen for new docks. This happened during a period that there was no queen available to be patron and so, unprotected,'old Kate' was demolished.The last service in the church took place on the 30th October 1825, with construction starting in 1827, the foundation stone being laid in May of that year.","The Grade II listed Dock Master’s Office, with the curved frontage onto the river, still has a prominent position to the right of the dock entrance. The early 19th century was a time of considerable expansion of the docks, eastward from the City. The volume of shipping and of goods was high, and the charges levied by the dock owners had limited competition, so there was no incentive to reduce charges.The docks were completed and officially opened on the 25th October 1828.The docks were bombed during the war, and never recovered after the war, becoming the first of the London docks to close, in 1968.","But why the elephants? When used as a trading dock, St Katharine’s dealt mainly in tea and ivory. The elephants are a reminder of the docks’ former trading days. They were mounted on the original vermiculated gatepiers in 1973 to commemorate the heritage of the trading dock.","4","5","6","7"];
     
-    var choices = ["Stop 1", "Stop 2 and arrived at the Dockmaster's house.", "Stop 3 and arrived at the Elephants on the dock gates.\nBut why the elephants?\nWhen used as a trading dock, St Katharine’s dealt mainly in tea and ivory. The elephants are a reminder of the docks’ former trading days. They were mounted on the original vermiculated gatepiers in 1973 to commemorate the heritage of the trading dock","Stop 4 and arrived at Devon House.", "Stop 5 and arrived at the Sculpture in the East Basin", "Stop 6 and arrived at the World Trade Centre Plaque.","Stop 7 and arrived at the Echoed Aromas"];
+    var choices = ["Stop 1 and arrived at the former spot of St Katherine's by the Tower", "Stop 2 and arrived at the Dockmaster's house", "Stop 3 and arrived at the Elephants on the dock gates","Stop 4 and arrived at Devon House", "Stop 5 and arrived at the Sculpture in the East Basin", "Stop 6 and arrived at the World Trade Centre Plaque","Stop 7 and arrived at the Echoed Aromas"];
     var sentence = "You picked " + choices[userChoice]+ ".";
+   var sentence2 = sentences2[userChoice];
     var img = '<img src="' + links[userChoice] + '" width="500">';
+    var img2 = '<img src="' + links2[userChoice] + '" width="500">';
     
-    output.innerHTML = sentence + img;
+    output.innerHTML = sentence + img + sentence2 + img2;
 }
 </script>
-    </body>
-  </html>
+<script>
+  // When the user scrolls the page, execute myFunction
+window.onscroll = function() {myFunction()};
+
+// Get the header
+var header = document.getElementById("myHeader");
+
+// Get the offset position of the navbar
+var sticky = header.offsetTop;
+
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+<style>
+body {
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-image: opacity: 0.2 ;
+}
+#intro {
+  background-color: #E5E1D6;
+  padding: 5px 5px;
+  text-align: center;
+  font-size: 16;
+
+}
+#result {
+  background-color: #7C0D0E;
+  color:  white;
+  padding: 5px 5px;
+  text-align: center;
+
+}
+.header {
+  overflow: hidden;
+  background-color: #bfa8a8;
+  padding: 20px 10px;
+  color: #7C0D0E;
+
+}
+@media screen and (max-width: 500px) {
+  header {
+    float: none;
+    display: block;
+    text-align: left;
+  }}
+#btnID {
+  background-color: #7C0D0E;
+  color:  white;
+  text-align: center;
+      font-size: 18;
+    }
+
+#header-e1
+{
+    float: left;
+}
+#header-e2
+{
+    float: right;
+}
+
+#subButton
+{
+  background-color: #7C0D0E;
+  color:  white;
+  font-size: 18;
+
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+#display_here {
+    background-color: #E5E1D6;
+
+}
+#nameLable {
+  background-color: #7C0D0E;
+  color:  white;
+}
+.wrapper {
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 24;
+}
+footer {
+    background-color: #bfa8a8;
+}
+</style>
