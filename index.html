@@ -11,6 +11,7 @@
   </head>
   <body> 
      <header>
+      <div class='header_container'>
       <div class="header" id="myHeader">
         <div id="header-e1">
       <h1>NU Britain and the World Scavenger Hunt</h1>
@@ -19,6 +20,7 @@
       <img src="header.jpg" height="100">
     </div>
     </div>
+  </div>
     </header>
     <div id='intro'>
  <p> This is the online St Katherine's Docks Scavenger Hunt for Britain and the World students. Please start the game below.</p>
@@ -100,6 +102,8 @@ subButton.addEventListener('click', getUserName, false);
           let image = document.getElementById("image");
           image.src = "hunt.png"
           image.style.width = "600px";
+          image.style.border = "5px solid #7C0D0E";
+          image.style.border.radius = "15px";
           document.getElementById("btnID").style.display ="none";
           result.textContent = "You are standing in front of Devon House in St Katherine's Docks. Which point do you want to visit next? Please choose a stop from the dropdown menu next to the map.";
         }
@@ -183,7 +187,10 @@ body {
   background-color: #E5E1D6;
   padding: 5px 5px;
   text-align: center;
-  font-size: 16;
+  font-size: 18;
+    border-radius: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+
 
 }
 #result {
@@ -191,17 +198,28 @@ body {
   color:  white;
   padding: 5px 5px;
   text-align: center;
+  border-radius: 25px;
+    font-family: "Lucida Console", "Courier New", monospace;
+
+
 
 }
 .header {
   overflow: hidden;
-  background-color: #bfa8a8;
+  background-color: rgba(188,167,164,.7);
   padding: 20px 10px;
   color: #7C0D0E;
+    font-family: Arial, Helvetica, sans-serif;
+
   border-style: outset;
   border-width: 5px;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+  border-color: #7C0D0E;
+  text-shadow: 2px 2px gray;
 
 }
+
 @media screen and (max-width: 500px) {
   header {
     float: none;
@@ -212,7 +230,11 @@ body {
   background-color: #7C0D0E;
   color:  white;
   text-align: center;
-      font-size: 18;
+  font-size: 18;
+  border-radius: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+
+
     }
 
 #header-e1
@@ -222,6 +244,7 @@ body {
 #header-e2
 {
     float: right;
+
 }
 
 #subButton
@@ -229,6 +252,10 @@ body {
   background-color: #7C0D0E;
   color:  white;
   font-size: 18;
+  border-radius: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+
+
 
 }
 .sticky {
@@ -238,16 +265,24 @@ body {
 }
 #display_here {
     background-color: #E5E1D6;
+        font-family: "Lucida Console", "Courier New", monospace;
+
 
 }
 #nameLable {
   background-color: #7C0D0E;
   color:  white;
+    border-radius: 14px;
+      font-family: "Lucida Console", "Courier New", monospace;
+
+
 }
 .wrapper {
     text-align: center;
     padding: 20px 10px;
     font-size: 24;
+        border-radius: 15px;
+
 }
 footer {
   background-color: #E5E1D6;
@@ -255,6 +290,8 @@ footer {
    width: 100%;
    height: 60px;
   padding-bottom: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+
 
 }
 .center {
@@ -265,6 +302,10 @@ footer {
   background-color: rgba(229,225,214, .5);
   padding: 5px 5px;
   font-size: 16;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-weight: bold;
+
+
 }
 
 #choice {
@@ -273,6 +314,8 @@ footer {
   border-style: ridge;
   border-color: black;
   border-width: 3px;
+  border-radius: 10px;
+
 }
 
 </style>
