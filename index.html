@@ -51,7 +51,7 @@
   <th>
  <div id="display_here"></div>
   <div>
-    <select name="choice" id="choice" size="7" onchange="createDoll(this.value)">
+    <select name="choice" id="choice" size="8" onchange="createDoll(this.value)">
     <option value="0">Stop 1</option>
     <option value="1">Stop 2</option>
     <option value="2">Stop 3</option>
@@ -59,7 +59,7 @@
     <option value="4">Stop 5</option>
     <option value="5">Stop 6</option>
     <option value="6">Stop 7</option>
-    <option value="7">Finished!</option>
+    <option value="7">Last one!</option>
 </select>
 </div>
 </th>
@@ -103,15 +103,16 @@ subButton.addEventListener('click', getUserName, false);
           image.src = "hunt.png"
           image.style.width = "600px";
           image.style.border = "5px solid #7C0D0E";
-          image.style.border.radius = "15px";
           document.getElementById("btnID").style.display ="none";
-          result.textContent = "You are standing in front of Devon House in St Katherine's Docks. Which point do you want to visit next? Please choose a stop from the dropdown menu next to the map.";
+          result.textContent = "You are standing in front of Devon House in St Katherine's Docks. You have to accomplish the task below. Which point do you want to visit next? Please choose a stop from the dropdown menu next to the map.";
         }
 </script>
 
 <script type="text/javascript">
   function createDoll(userChoice) {
     var output = document.getElementById("display_here");
+    var nameField = document.getElementById('nameField').value;
+
     output.innerHTML = "";
     //document.getElementById('image').style.visibility='hidden';
 
@@ -137,9 +138,9 @@ subButton.addEventListener('click', getUserName, false);
     'task.jpeg'
     ];
 
-    var sentences2 = ["What was originally standing here? The Royal Hospital and Collegiate Church of St. Katharine by the Tower.This was a medieval church and hospital founded by Queen Matilda of Boulogne, wife of King Stephen. From 1273 onwards patronage was always held by the queen.  By the nineteenth century it had grown to a village providing refuge to immigrants and to the poor. Considered insanitary and located close to the City this was the site chosen for new docks. This happened during a period that there was no queen available to be patron and so, unprotected,'old Kate' was demolished.The last service in the church took place on the 30th October 1825, with construction starting in 1827, the foundation stone being laid in May of that year.","The Grade II listed Dock Master’s Office, with the curved frontage onto the river, still has a prominent position to the right of the dock entrance. The early 19th century was a time of considerable expansion of the docks, eastward from the City. The volume of shipping and of goods was high, and the charges levied by the dock owners had limited competition, so there was no incentive to reduce charges.The docks were completed and officially opened on the 25th October 1828.The docks were bombed during the war, and never recovered after the war, becoming the first of the London docks to close, in 1968. On the wall of the Dockmaster's house, beside the lock at the entrance to St Katharine Dock, there is a plaque which was fixed in 1988 in the presence of Queen Beatrix of the Netherlands to commemorate three centuries of Anglo-Dutch naval friendship. 1688 was the year of the 'Glorious Revolution' when the Protestant William of Orange arrived in England with his wife Mary to displace the unpopular Catholic James II, and so became King and Queen. This brought the two Protestant countries closer together","But why the elephants? When used as a trading dock, St Katharine’s dealt mainly in tea and ivory. The elephants are a reminder of the docks’ former trading days. They were mounted on the original vermiculated gatepiers in 1973 to commemorate the heritage of the trading dock.","The social life of the docks were also integral to their character. Pubs and breweries had long been part of the area's history, but in the nineteenth century they played a new function: many casual labourers awaiting the 'call on' for work would wait in pubs like this one- the Bull's Head that used to sit on the site of Devon House. Pub landlords often acted as employment agents for the dock owners, even paying wages on their behalf at the end of the day- in the obvious expectation much would be spent immediately behind the bar. We also know a few residents at this address from as early as 16 April 1791. The LMA acrhives mentions:'Insured: Mary Harrison, near St Catherines Bridge St Catherines, widow, for herself and in trust - Other property or occupiers: Bulls Head in Little Thomas Street (Kinton victualler); Fokard and Harrison'. The Charringtons pub here closed in 1952.","Sir Thomas More (1478-1535) after whom the street and square are named, served with distinction in a number of posts under Henry VII and Henry VIII. He was Speaker of the House of Commons, Chancellor to Duchy of Lancaster and, against his better judgment, became Lord Chancellor. After the break with Rome, his religious beliefs prevented him from accepting Henry VIII as head of the Church of England. For this he was imprisoned in the Tower and eventually beheaded. The plaque marks the route which lead him to his execution. Thomas More Street was formerly Nightingale Lane, which got it's name from Knighten Guild (various spellings) that owned this land. The Guild sold the land to the Augustinians who built the original St Katharine's Hospital","During the Blitz (1940-41), the St Katharine Docks area was heavily bombed, leaving it in ruins. It was officially closed in 1968. However, in 1973 the Tower Gaunt Hotel, built in place of some of the old warehouses, created an attraction with great views of the city, and opened the docks up to public interest once more. It was followed by the construction of International House which was to become The World Trade Centre in London, Europe House (since demolished), Commodity Quay and Devon House. The Dickens Inn pub was created from the structure of a former warehouse that was moved to Marble Quay","One of seven sculptures by the same artist, which have as their theme, the merchandise which used to be unloaded at this dock. The stones used for these sculptures were part of the original dock. This is in the form of a seat showing the spices vanilla, cloves, nutmeg and cinnamon. Image: Statistics of ships discharged in the St Katharine's Dock in 1862, from the St Katharine Docks Archive at the Museum of London Docklands","But before you go to relax, don't forget to head over to Canvas and upload your answers to the questions below"];
+    var sentences2 = ["What was originally standing here? The Royal Hospital and Collegiate Church of St. Katharine by the Tower.This was a medieval church and hospital founded by Queen Matilda of Boulogne, wife of King Stephen. From 1273 onwards patronage was always held by the queen.  By the nineteenth century it had grown to a village providing refuge to immigrants and to the poor. Considered insanitary and located close to the City this was the site chosen for new docks. This happened during a period that there was no queen available to be patron and so, unprotected,'old Kate' was demolished.The last service in the church took place on the 30th October 1825, with construction starting in 1827, the foundation stone being laid in May of that year.","The Grade II listed Dock Master’s Office, with the curved frontage onto the river, still has a prominent position to the right of the dock entrance. The early 19th century was a time of considerable expansion of the docks, eastward from the City. The volume of shipping and of goods was high, and the charges levied by the dock owners had limited competition, so there was no incentive to reduce charges.The docks were completed and officially opened on the 25th October 1828.The docks were bombed during the war, and never recovered after the war, becoming the first of the London docks to close, in 1968. On the wall of the Dockmaster's house, beside the lock at the entrance to St Katharine Dock, there is a plaque which was fixed in 1988 in the presence of Queen Beatrix of the Netherlands to commemorate three centuries of Anglo-Dutch naval friendship. 1688 was the year of the 'Glorious Revolution' when the Protestant William of Orange arrived in England with his wife Mary to displace the unpopular Catholic James II, and so became King and Queen. This brought the two Protestant countries closer together","But why the elephants? When used as a trading dock, St Katharine’s dealt mainly in tea and ivory. The elephants are a reminder of the docks’ former trading days. They were mounted on the original vermiculated gatepiers in 1973 to commemorate the heritage of the trading dock.","The social life of the docks were also integral to their character. Pubs and breweries had long been part of the area's history, but in the nineteenth century they played a new function: many casual labourers awaiting the 'call on' for work would wait in pubs like this one- the Bull's Head that used to sit on the site of Devon House. Pub landlords often acted as employment agents for the dock owners, even paying wages on their behalf at the end of the day- in the obvious expectation much would be spent immediately behind the bar. We also know a few residents at this address from as early as 16 April 1791. The LMA acrhives mentions:'Insured: Mary Harrison, near St Catherines Bridge St Catherines, widow, for herself and in trust - Other property or occupiers: Bulls Head in Little Thomas Street (Kinton victualler); Fokard and Harrison'. The Charringtons pub here closed in 1952.","Sir Thomas More (1478-1535) after whom the street and square are named, served with distinction in a number of posts under Henry VII and Henry VIII. He was Speaker of the House of Commons, Chancellor to Duchy of Lancaster and, against his better judgment, became Lord Chancellor. After the break with Rome, his religious beliefs prevented him from accepting Henry VIII as head of the Church of England. For this he was imprisoned in the Tower and eventually beheaded. The plaque marks the route which lead him to his execution. Thomas More Street was formerly Nightingale Lane, which got it's name from Knighten Guild (various spellings) that owned this land. The Guild sold the land to the Augustinians who built the original St Katharine's Hospital","During the Blitz (1940-41), the St Katharine Docks area was heavily bombed, leaving it in ruins. It was officially closed in 1968. However, in 1973 the Tower Gaunt Hotel, built in place of some of the old warehouses, created an attraction with great views of the city, and opened the docks up to public interest once more. It was followed by the construction of International House which was to become The World Trade Centre in London, Europe House (since demolished), Commodity Quay and Devon House. The Dickens Inn pub was created from the structure of a former warehouse that was moved to Marble Quay","One of seven sculptures by the same artist, which have as their theme, the merchandise which used to be unloaded at this dock. The stones used for these sculptures were part of the original dock. This is in the form of a seat showing the spices vanilla, cloves, nutmeg and cinnamon. Image: Statistics of ships discharged in the St Katharine's Dock in 1862, from the St Katharine Docks Archive at the Museum of London Docklands","But before you go to relax, don't forget to head over to Canvas and upload your answers to the questions below. See you in class, "+nameField+"!"];
     
-    var choices = ["Stop 1 and arrived at the former spot of St Katherine's by the Tower", "Stop 2 and arrived at the Dockmaster's house", "Stop 3 and arrived at the Elephants on the dock gates","Stop 4 and arrived at Devon House", "Stop 5 and you reached the Thomas More street", "Stop 6 and arrived at the World Trade Centre Plaque","Stop 7 and arrived at the Echoed Aromas", "all the stops. Well done! You are finished"];
+    var choices = ["Stop 1 and arrived at the former spot of St Katherine's by the Tower", "Stop 2 and arrived at the Dockmaster's house", "Stop 3 and arrived at the Elephants on the dock gates","Stop 4 and arrived at Devon House", "Stop 5 and you reached the Thomas More street", "Stop 6 and arrived at the World Trade Centre Plaque","Stop 7 and arrived at the Echoed Aromas", "all the stops. Well done " +nameField+"! You are finished"];
     var sentence = "You picked " + choices[userChoice]+ ".";
    var sentence2 = sentences2[userChoice];
     var img = '<img src="' + links[userChoice] + '" width="500">';
@@ -194,18 +195,19 @@ body {
   padding: 5px 5px;
   text-align: center;
   font-size: 18;
-    border-radius: 25px;
+  border-radius: 25px;
   font-family: Arial, Helvetica, sans-serif;
+
 
 
 }
 #result {
-  background-color: #7C0D0E;
+  background-color: rgba(124,13,14, .8);
   color:  white;
   padding: 5px 5px;
   text-align: center;
   border-radius: 25px;
-    font-family: "Lucida Console", "Courier New", monospace;
+  font-family: "Lucida Console", "Courier New", monospace;
 
 
 
@@ -252,6 +254,10 @@ body {
     float: right;
 
 }
+#header-e2 img{
+ border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
 
 #subButton
 {
@@ -259,7 +265,7 @@ body {
   color:  white;
   font-size: 18;
   border-radius: 25px;
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
 
 
@@ -271,12 +277,18 @@ body {
 }
 #display_here {
     background-color: #E5E1D6;
-        font-family: "Lucida Console", "Courier New", monospace;
-
+    font-family: "Lucida Console", "Courier New", monospace;}
+#display_here img {
+  border-radius: 5%;
+  display: block;
+  margin: auto;
 
 }
+
+
+
 #nameLable {
-  background-color: #7C0D0E;
+  background-color: rgba(124,13,14, .8);
   color:  white;
     border-radius: 14px;
       font-family: "Lucida Console", "Courier New", monospace;
