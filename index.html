@@ -144,8 +144,14 @@ subButton.addEventListener('click', getUserName, false);
    var sentence2 = sentences2[userChoice];
     var img = '<img src="' + links[userChoice] + '" width="500">';
     var img2 = '<img src="' + links2[userChoice] + '" width="500">';
-    
+
     output.innerHTML = sentence + img +  sentence2 + img2;
+
+    window.scrollTo({
+  top: 100,
+  left: 100,
+  behavior: 'smooth'
+});
 
 }
 </script>
@@ -184,7 +190,7 @@ body {
   background-image: opacity: 0.2 ;
 }
 #intro {
-  background-color: #E5E1D6;
+  background-color: rgba(229,225,214, .8);
   padding: 5px 5px;
   text-align: center;
   font-size: 18;
